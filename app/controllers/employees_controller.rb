@@ -9,9 +9,9 @@ before_action :find_employee, only:[:edit, :show, :update, :delete]
     @employee =Employee.create(employee_params)
     if @employee.save
       redirect_to employees_path
-    end
-  else
-    redirect_to new_bank_path
+    else
+      redirect_to new_bank_path
+    end  
   end
 
   def new
@@ -32,10 +32,9 @@ before_action :find_employee, only:[:edit, :show, :update, :delete]
   def delete
     redirect_to employees_path  
   end
-
-  Private
+  
   def employee_params
-    @employee.params.require(:bank).permit(:name)
+    @employee.params.require(:employee).permit(:name, :contact, :department, :team)
   end
 
   def find_employee

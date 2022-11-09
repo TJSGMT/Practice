@@ -1,5 +1,5 @@
 class Employee < ApplicationRecord
-    belongs_to :team 
-    belongs_to :bank
-    belongs_to :department
+    belongs_to :team, optional: true
+    belongs_to :bank, optional: true
+    belongs_to :department, optional: true
 end

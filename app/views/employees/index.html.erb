@@ -19,7 +19,6 @@
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Contact</th>
-                <th scope="col">Email</th>
                 <th></th>
               </tr>
             </thead>
@@ -33,7 +32,7 @@
               <%end%>
             </tbody>
           </table>
-                  <td><%= link_to "Create Employee", employees_path, class:"btn btn-primary",data: {turbo_method: :post}%>
+              <button type="button " class="btn btn-link"><%= link_to "Add new Employee", new_employee_path, class:"btn btn-secondary", method: :get %></button> 
           <br>
         </div>
       </div>

@@ -34,7 +34,7 @@ before_action :find_employee, only:[:edit, :show, :update, :delete]
   end
   
   def employee_params
-    @employee.params.require(:employee).permit(:name, :contact, :department, :team)
+    params.require(:employee).permit(:name, :contact, :Bank_account_id, :team_name)
   end
 
   def find_employee

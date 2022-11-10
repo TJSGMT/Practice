@@ -1,2 +1,19 @@
-<h1>Employees#new</h1>
-<p>Find me in app/views/employees/new.html.erb</p>
+<% if flash[:errors] %>
+  <%= flash[:errors] %>
+<% end %><br>
+<br>
+<div class="container">
+  <div class="card" style="width: 68rem;">
+    <div class="card-body">
+      <h4 class="card-title text-center">Employee Registration Form</h4>
+      <%= form_with model: @employees do |form| %><br>
+        <%= form.text_field :name, class:"form-control", placeholder:"Enter name" %><br>
+        <%= form.text_field :contact, class:"form-control", placeholder:"Enter contact" %><br>
+        <%# <%= form.select :department, class: "form-control", []%>
+        <br>
+        <%= form.submit class:"btn btn-primary"%><br>
+      <%end%>
+    </div>
+  </div>
+</div>
+</div>

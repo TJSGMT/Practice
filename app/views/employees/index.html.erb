@@ -11,7 +11,7 @@
     <div class="container">
       <div class="card" style="width: 68rem;">
         <div class="card-body">
-          <h4 class="card-title text-center">Quick User Index</h4>
+          <h4 class="card-title text-center">Employee Index Page</h4>
           <br>
           <br>
           <table class="table  table-hover">
@@ -27,12 +27,13 @@
                 <tr>
                   <th scope="row"><%=employee.name%></th>
                   <td><%=employee.contact%></td>
+                  <td><button type="button" class="btn btn-link"><%= link_to "Show", employee_path(employee), class:"btn btn-primary", method: :get %></button>
                   </td>
                 </tr>
               <%end%>
             </tbody>
           </table>
-              <button type="button " class="btn btn-link"><%= link_to "Add new Employee", new_employee_path, class:"btn btn-secondary", method: :get %></button> 
+              <button type="button " class="btn btn-link"><%= link_to "Add new Employee", new_employee_path, class:"btn btn-secondary", method: :post %></button> 
           <br>
         </div>
       </div>

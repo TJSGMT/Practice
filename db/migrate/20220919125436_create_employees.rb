@@ -2,7 +2,7 @@ class CreateEmployees < ActiveRecord::Migration[7.0]
   def change
     create_table :employees do |t|
       t.string :name
-      t.string :contact
+      t.integer :contact
       t.string :Bank_account_id
       t.string :team_name
 

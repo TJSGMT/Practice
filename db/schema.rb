@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_19_130853) do
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_books_on_author_id"
   end
-z
+
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -42,7 +42,7 @@ z
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
-    t.string "contact"
+    t.integer "contact"
     t.string "Bank_account_id"
     t.string "team_name"
     t.datetime "created_at", null: false

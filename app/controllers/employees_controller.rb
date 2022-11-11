@@ -6,11 +6,13 @@ before_action :find_employee, only:[:edit, :show, :update, :delete]
   end
 
   def create
+    # binding.pry
     @employee =Employee.create(employee_params)
     if @employee.save
       redirect_to employees_path
     else
-      redirect_to new_bank_path
+      flash[:errors] = @employee.errors.full_messages
+      redirect_to new_employee_path
     end  
   end
 
@@ -34,10 +36,11 @@ before_action :find_employee, only:[:edit, :show, :update, :delete]
   end
   
   def employee_params
-    params.require(:employee).permit(:name, :contact, :Bank_account_id, :team_name)
+    params.require(:employee).permit(:name, :contact, :Bank_account_id, :team_name,:bank_id, :department_id, :team_id )
   end
 
   def find_employee
-    @employee = Employee.find(parmas[:id])
+    # binding.pry
+    @employee = Employee.find(params[:id])
   end
 end

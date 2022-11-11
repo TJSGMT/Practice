@@ -1,5 +1,6 @@
 class DepartmentsController < ApplicationController
 before_action :find_department, only:[:edit, :show, :update, :delete]
+
   def index
     @department =Department.all
   end
@@ -9,7 +10,7 @@ before_action :find_department, only:[:edit, :show, :update, :delete]
     if @department.save
       redirect_to employees_path
     end
-  else
+    else
     redirect_to new_bank_path
   end
 

@@ -1,0 +1,20 @@
+<% if flash[:errors] %>
+  <%= flash[:errors] %>
+<% end %><br>
+<br>
+<div class="container">
+  <div class="card" style="width: 68rem;">
+    <div class="card-body">
+      <h4 class="card-title text-center">Employee Registration Form</h4>
+      <%= form_with model: @employee do |form| %><br>
+        <%= form.text_field :name, class:"form-control", placeholder:"Enter name" %><br>
+        <%= form.text_field :contact, class:"form-control", placeholder:"Enter contact" %><br>
+        <%= form.collection_select( :bank_id, Bank.order(:name),:id,:name,{include_blank: "--Select--Bank--"}, {class: 'form-control '})%><br>
+        <%= form.collection_select( :department_id, Department.order(:name),:id,:name,{include_blank: "--Select--Department--"}, {class: 'form-control '})%><br>
+        <%= form.collection_select( :team_id, Team.order(:name),:id,:name,{include_blank: "--Select--Team--"}, {class: 'form-control '})%><br>
+        <br>
+        <%= form.submit class:"btn btn-primary"%><br>
+      <%end%>
+    </div>
+  </div>
+</div>

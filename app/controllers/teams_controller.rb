@@ -2,20 +2,20 @@ class TeamsController < ApplicationController
 before_action :find_team, only:[:edit, :show, :update, :delete]
  
   def index
-    @team =Employee.all
+    @team =Team.all
   end
 
   def create
-    @team =Employee.create(employee_params)
+    @team =Team.create(Team_params)
     if @team.save
-      redirect_to employees_path
+      redirect_to teams_path
     end
   else
-    redirect_to new_bank_path
+    redirect_to new_team_path
   end
 
   def new
-    @team = Employee.new()
+    @team = Team.new()
   end
 
   def edit
@@ -25,20 +25,20 @@ before_action :find_team, only:[:edit, :show, :update, :delete]
   end
 
   def update
-    @team.update(employee_params)
-    redirect_to employees_path
+    @team.update(team_params)
+    redirect_to teams_path
   end
 
   def delete
-    redirect_to employees_path  
+    redirect_to eeams_path  
   end
 
   Private
-  def employee_params
+  def team_params
     @team.params.require(:bank).permit(:name)
   end
 
   def find_team
-    @team = Employee.find(parmas[:id])
+    @team = Team.find(parmas[:id])
   end
 end

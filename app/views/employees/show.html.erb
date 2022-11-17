@@ -1,2 +1,13 @@
-<h1>Employees#show</h1>
-<p>Find me in app/views/employees/show.html.erb</p>
+<div class="container">
+ <div class="card" style="width: 68rem;">
+    <div class="card-body">
+      <div class="text-left ">
+        <h1>Employee name :- <%= @employee.name%></h1>
+        <h3>Department name :- <%= @employee.department.name %><br></h3>
+        <h3>Team name :- <%=@employee.team.name%></h3>
+        <h4>Bank name :-<%=@employee.bank.name%></h4>
+        <h4>Contact number :-<%=@employee.contact%>
+      </div>
+    </div>  
+  </div>    
+</div>

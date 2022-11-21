@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_19_130853) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_21_151621) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.string "book_name"
@@ -40,6 +40,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_19_130853) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "employee_skills", force: :cascade do |t|
+    t.integer "employee_id", null: false
+    t.integer "skill_id", null: false
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_employee_skills_on_employee_id"
+    t.index ["skill_id"], name: "index_employee_skills_on_skill_id"
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "name"
     t.integer "contact"
@@ -55,6 +65,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_19_130853) do
     t.index ["team_id"], name: "index_employees_on_team_id"
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -64,6 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_19_130853) do
   end
 
   add_foreign_key "books", "authors"
+  add_foreign_key "employee_skills", "employees"
+  add_foreign_key "employee_skills", "skills"
   add_foreign_key "employees", "banks"
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "teams"
